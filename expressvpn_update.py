@@ -30,13 +30,13 @@ if hasattr(sys,'ps1') and os.geteuid() != 0:
 # -------------------------------------------------------------------------------------------------
 email_enabled = True
 if(email_enabled):
-  email_user = os.getenv('EMAIL_USER')      or 'username'
-  email_pass = os.getenv('EMAIL_PASS')      or 'password'
-  email_domain = os.getenv('EMAIL_DOMAIN')  or 'gmail.com'
-  email_from = os.getenv('EMAIL_FROM')      or email_user + '@' + email_domain
-  email_to = os.getenv('EMAIL_TO')          or email_from
-  email_server = os.getenv('EMAIL_SERVER')  or 'smtp.' + email_domain
-  email_port = int(os.getenv('EMAIL_PORT')) or 587
+  email_user = os.getenv('EXPRESSVPN_EMAIL_USER')      or 'username'
+  email_pass = os.getenv('EXPRESSVPN_EMAIL_PASS')      or 'password'
+  email_domain = os.getenv('EXPRESSVPN_EMAIL_DOMAIN')  or 'gmail.com'
+  email_from = os.getenv('EXPRESSVPN_EMAIL_FROM')      or email_user + '@' + email_domain
+  email_to = os.getenv('EXPRESSVPN_EMAIL_TO')          or email_from
+  email_server = os.getenv('EXPRESSVPN_EMAIL_SERVER')  or 'smtp.' + email_domain
+  email_port = int(os.getenv('EXPRESSVPN_EMAIL_PORT')) or 587
 # -------------------------------------------------------------------------------------------------
 
 # import libraries
