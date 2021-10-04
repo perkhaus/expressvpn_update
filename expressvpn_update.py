@@ -30,13 +30,13 @@ if hasattr(sys,'ps1') and os.geteuid() != 0:
 # -------------------------------------------------------------------------------------------------
 email_enabled = True
 if(email_enabled):
-  email_user = os.getenv('EXPRESSVPN_EMAIL_USER')      or ''
-  email_pass = os.getenv('EXPRESSVPN_EMAIL_PASS')      or ''
-  email_domain = os.getenv('EXPRESSVPN_EMAIL_DOMAIN')  or 'gmail.com'
-  email_from = os.getenv('EXPRESSVPN_EMAIL_FROM')      or email_user + '@' + email_domain
-  email_to = os.getenv('EXPRESSVPN_EMAIL_TO')          or email_from
-  email_server = os.getenv('EXPRESSVPN_EMAIL_SERVER')  or 'smtp.' + email_domain
-  email_port = int(os.getenv('EXPRESSVPN_EMAIL_PORT')) or 587
+  email_user = os.getenv('EXPRESSVPN_EMAIL_USER')           or ''
+  email_pass = os.getenv('EXPRESSVPN_EMAIL_PASS')           or ''
+  email_domain = os.getenv('EXPRESSVPN_EMAIL_DOMAIN')       or 'gmail.com'
+  email_from = os.getenv('EXPRESSVPN_EMAIL_FROM')           or email_user + '@' + email_domain
+  email_to = os.getenv('EXPRESSVPN_EMAIL_TO')               or email_from
+  email_server = os.getenv('EXPRESSVPN_EMAIL_SERVER')       or 'smtp.' + email_domain
+  email_port = int(os.getenv('EXPRESSVPN_EMAIL_PORT')       or '587')
 # -------------------------------------------------------------------------------------------------
 
 # import libraries
@@ -47,7 +47,7 @@ from email.mime.text import MIMEText
 import re, requests, shutil, smtplib, pwd, subprocess
 
 # build required variables
-email_enabled = email_user and email_pass # disable email if username or password not set
+email_enabled = bool(email_user and email_pass) # disable email if username or password not set
 download_path = '/var/local'              # non-interactive: e.g. cron (root)
 urlSource = 'https://www.expressvpn.com/latest?utm_source=linux_app#linux'
 os_versions = ('Ubuntu 64-bit', 'Ubuntu 32-bit', 'Fedora 64-bit', 'Fedora 32-bit', 'Arch 64-bit', 'Raspbian 32-bit')
