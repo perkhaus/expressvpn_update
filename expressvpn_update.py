@@ -21,6 +21,10 @@ https://dev.to/biplov/handling-passwords-and-secret-keys-using-environment-varia
 # along with this program; if not, see <http://www.gnu.org/licenses/>.
 #
 
+import platform
+if platform.system() != 'Linux':
+  exit('\nThis script cannot be run on ' + platform.system() + '.\n')
+
 import sys, os
 if hasattr(sys,'ps1') and os.geteuid() != 0:
   exit('\nThis script can only be run as root (or sudo).\n')
